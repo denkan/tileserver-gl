@@ -24,7 +24,7 @@ var Canvas = require('canvas'),
 var utils = require('./utils');
 
 var FLOAT_PATTERN = '[+-]?(?:\\d+|\\d+\.?\\d+)';
-var SCALE_PATTERN = '@[234]x';
+var SCALE_PATTERN = '@[2348]x';
 
 var getScale = function(scale) {
   return (scale || '@1x').slice(1, 2) | 0;
@@ -271,6 +271,7 @@ module.exports = function(options, repo, params, id, dataResolver) {
     map.renderers[2] = createPool(2, 2, 8);
     map.renderers[3] = createPool(3, 2, 4);
     map.renderers[4] = createPool(4, 2, 4);
+    map.renderers[8] = createPool(8, 2, 4);
   });
 
   repo[id] = tileJSON;
